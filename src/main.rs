@@ -48,29 +48,18 @@ async fn main() -> anyhow::Result<()> {
 
     let password = std::env::var("PASSWORD").expect("PASSWORD must be set.");
 
-    //Intentar pasar este parámetro como password
     let bot_user = user_id!("@virto_bot:matrix.org");
     let client = Client::builder().server_name(bot_user.server_name()).build().await?;
 
     // First we need to log in.
     client.login_username(bot_user, &password).send().await?;
 
-    // let default = String::from("Unexisting room");
-    // let room_id = RoomId::parse(std::env::var("ROOM_ID").unwrap_or(default));
-    // let room = client.join_room_by_id(room_id!("!oqWOHFNSqdBaqVabYS:matrix.org")).await?;
-
-
     // We add an event handler that listens if our user is invited to a room
     client.add_event_handler(on_stripped_state_member);
 
-
+    // This event handler listens and prints every message it's received or sent
     client.add_event_handler(|ev: SyncRoomMessageEvent| async move {
-      //  No entiendo como poder acceder al body del message desde el código
-    //    if ev.content.msgtype.body == "palta" {
-    //        room.send_message("The word 'palta' is a type of fruit that is native to South America.");
-    //    }
-
-        println!("Received a message {:?}", ev);
+         println!("Received a message {:?}", ev);
     });
 
     // Syncing is important to synchronize the client state with the server.
