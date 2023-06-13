@@ -1,4 +1,5 @@
 
+
 use matrix_sdk::{
     Client, config::SyncSettings,
     room::Room,
@@ -86,7 +87,7 @@ async fn on_room_message(event: OriginalSyncRoomMessageEvent, room: Room) {
     // here comes the actual "logic": when the bot see's a `!party` in the message,
     // it responds
     if text_content.body.contains("!kusamaupdates") {
-        let content = RoomMessageEventContent::text_plain("🎉🎊🥳 I don't know how to get'em 🥳🎊🎉");
+        let content = RoomMessageEventContent::text_plain("🎉🎊🥳 Cooming soon 🥳🎊🎉");
 
         println!("sending");
 

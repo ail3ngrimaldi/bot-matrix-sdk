@@ -10,5 +10,6 @@ anyhow = "1"
 serde= "1.0"
 tokio = { version = "1.24.2", features = ["macros", "rt-multi-thread"] }
 tracing-subscriber = "0.3.15"
-matrix-sdk = "0.6.0"
+matrix-sdk = { git="https://github.com/matrix-org/matrix-rust-sdk.git", default-features = false, features=["rustls-tls", "e2e-encryption"]}
+sube = { git = "https://github.com/virto-network/sube", branch = "feature/builder", default-features = false, features= ["http","v14", "json", "builder", "ws"] }
 dotenv = "0.15.0"
