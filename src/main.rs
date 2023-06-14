@@ -4,7 +4,7 @@ use matrix_sdk::{
     Client, config::SyncSettings,
     room::Room,
     ruma::{user_id, events::room::message::{SyncRoomMessageEvent, OriginalSyncRoomMessageEvent, MessageType, RoomMessageEventContent},
-           events::room::member::StrippedRoomMemberEvent, room_id, RoomId
+           events::room::member::StrippedRoomMemberEvent
           },
 };
 use tokio::time::{sleep, Duration};
